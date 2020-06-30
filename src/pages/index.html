@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To do List</title>
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body>
+    <form id="form_todo">
+      <input type="text" id="description" required />
+      <input type="datetime-local" id="date" required />
+      <input type="color" id="color" required />
+      <br />
+      <button type="submit">Enviar</button>
+    </form>
+    <table class="table" id="table_tasks">
+      <tbody>
+      </tbody>
+    </table>
+    <script src="../js/script.js" type="module"></script>
+  </body>
+</html>

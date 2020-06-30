@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=MuseoModerno:wght@500&display=swap');
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    background-image: url(../img/fondo.jpg);
+
+
+  
+    /* Set background image to fixed (don't scroll along with the page) */
+    background-attachment: fixed;
+  
+    /* Center the background image */
+    background-position: center;
+  
+    /* Set the background image to no repeat */
+    background-repeat: no-repeat;
+  
+    /* Scale the background image to be as large as possible */
+    background-size: cover;
+
+    font-family: 'MuseoModerno', cursive;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.table{
+    border-collapse: collapse;
+    width: 66%;
+    color: white;
+}
+
+
+.table > tbody tr{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 15px;
+    padding: 15px;
+    border-radius: 5px;
+}
+.table > tbody tr:hover{
+    transform: scale(1.1);
+}
+
+
+.table tr td:first-child{
+    width: 86%;
+    padding-right: 15px;
+}
+
+.table tr td:last-child{
+    width: 14%;
+}
+
+.table > tbody td{
+    text-align: center;
+}
+
+.table td button i{
+    pointer-events: none;
+    padding: 5px;
+}
+
+.table tr td button{
+    border-radius: 60px;
+    background-color: darkred;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.task_description{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.time_remaining{
+    display: flex;
+}
+.time_remaining > span{
+    margin-left: 15px;
+    text-align: center;
+    
+}
+
