@@ -4,26 +4,31 @@ const miliseconds_for_hour = miliseconds_for_minute * 60;
 const miliseconds_for_day = miliseconds_for_hour * 24;
 export class Timer {
   constructor(task) {
-      console.log(task);
     this.task = task;
     this.interval = null;
+    this.init();
+  }
+
+  init() {
+    this.clear();
     this.countDown();
     this.setTimer();
   }
 
   setTimer() {
-    this.interval = setInterval(()=>this.countDown(), miliseconds_for_second);
+    this.interval = setInterval(() => this.countDown(), miliseconds_for_second);
   }
 
   countDown() {
     const now = new Date();
     let time_remaining = new Date(this.task.date).getTime() - now.getTime();
     if (this.expired(time_remaining)) {
-        time_remaining = 0;
+      time_remaining = 0;
       this.clear();
     }
-    
-    document.querySelector(`#time${this.task.id}`).innerHTML = this.template(this.convert(time_remaining));
+    document.querySelector(`#time${this.task.id}`).innerHTML = this.template(
+      this.convert(time_remaining)
+    );
   }
 
   convert(time_remaining) {
@@ -59,8 +64,8 @@ export class Timer {
       `;
   }
 
-  addZero(time){
-      return (time < 10) ? `0${time}` : time;
+  addZero(time) {
+    return time < 10 ? `0${time}` : time;
   }
 
   clear() {

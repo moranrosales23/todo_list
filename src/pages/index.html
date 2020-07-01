@@ -9,13 +9,17 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
   <body>
-    <form id="form_todo">
-      <input type="text" id="description" required />
+    <h1>
+      PRÁCTICA 1 - TO DO LIST
+    </h1>
+    <form id="form_todo" novalidate>
+      <input type="text" id="description" placeholder="nombre de la tarea" required />
       <input type="datetime-local" id="date" required />
       <input type="color" id="color" required />
       <br />
       <button type="submit">Enviar</button>
     </form>
+    <div id="message"></div>
     <table class="table" id="table_tasks">
       <tbody>
       </tbody>

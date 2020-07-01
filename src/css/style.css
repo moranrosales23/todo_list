@@ -3,24 +3,12 @@
 *{
     box-sizing: border-box;
 }
-
+input:invalid{
+    border: 2px solid darkred;
+}
 body{
-    background-image: url(../img/fondo.jpg);
-
-
-  
-    /* Set background image to fixed (don't scroll along with the page) */
-    background-attachment: fixed;
-  
-    /* Center the background image */
-    background-position: center;
-  
-    /* Set the background image to no repeat */
-    background-repeat: no-repeat;
-  
-    /* Scale the background image to be as large as possible */
+    background: url(../img/fondo.jpg) no-repeat fixed center;
     background-size: cover;
-
     font-family: 'MuseoModerno', cursive;
     display: flex;
     flex-direction: column;
@@ -78,12 +66,13 @@ body{
     align-items: center;
     justify-content: space-between;
 }
+
 .time_remaining{
     display: flex;
 }
+
 .time_remaining > span{
     margin-left: 15px;
     text-align: center;
-    
 }
 
