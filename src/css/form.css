@@ -1,0 +1,53 @@
+.formulario {
+  width: 55%;
+  background-color: white;
+  margin-top: 25px;
+  border-radius: 5px;
+}
+
+.formulario h1 {
+  text-align: center;
+  background-color: #3f51b5;
+  color: whitesmoke;
+  margin: 0;
+  padding: 20px 0;
+}
+
+#form_todo {
+  display: flex;
+  flex-direction: row;
+  padding: 30px 50px;
+}
+
+#form_todo button {
+  cursor: pointer;
+  height: 60px;
+  width: 50px;
+  align-self: center;
+  border-radius: 2px;
+  border: 0;
+}
+
+#form_todo button:hover {
+  background-color: darkred;
+  color: white;
+}
+
+input:invalid {
+  border: 2px solid darkred;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 2;
+  padding-right: 40px;
+}
+
+.inputs input {
+  height: 32px;
+}
+
+.inputs input:not(:first-child) {
+  margin-top: 10px;
+}

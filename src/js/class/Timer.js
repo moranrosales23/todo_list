@@ -1,7 +1,12 @@
+import { Message } from "./Message.js";
+
 const miliseconds_for_second = 1000;
 const miliseconds_for_minute = miliseconds_for_second * 60;
 const miliseconds_for_hour = miliseconds_for_minute * 60;
 const miliseconds_for_day = miliseconds_for_hour * 24;
+
+const message = new Message();
+
 export class Timer {
   constructor(task) {
     this.task = task;
@@ -11,18 +16,19 @@ export class Timer {
 
   init() {
     this.clear();
-    this.countDown();
     this.setTimer();
   }
 
   setTimer() {
     this.interval = setInterval(() => this.countDown(), miliseconds_for_second);
+    this.countDown();
   }
 
   countDown() {
     const now = new Date();
     let time_remaining = new Date(this.task.date).getTime() - now.getTime();
     if (this.expired(time_remaining)) {
+      message.show({...this.task});
       time_remaining = 0;
       this.clear();
     }

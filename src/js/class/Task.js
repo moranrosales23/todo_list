@@ -15,6 +15,16 @@ export class Task extends Storage {
     this.deleteTimer(id);
   }
 
+  deleteTimer(id) {
+    for (const [index, timer] of timers.entries()) {
+      if (timer.task.id === id) {
+        timer.clear();
+        timers.splice(index, 1);
+        break;
+      }
+    }
+  }
+
   addRowTable(template, table = document.querySelector("table.table > tbody")) {
     table.innerHTML += template;
   }
@@ -32,13 +42,16 @@ export class Task extends Storage {
     return `
           <tr style="background-color: ${task.color};" >
             <td class="task_description">
-              ${task.description}
-              <div class="time_remaining" id="time${task.id}"></div>
+                <div class="task_description__text">
+                  <span class="task_description__text--name">${task.description}</span>
+                  <small class="task_description__text--date">Registrado: ${task.date_register}</small>
+                </div>
+                <div class="time_remaining" id="time${task.id}"></div>
             </td>
             <td data-idtask="${task.id}">
-              <button type="button">
-                <i class="fa fa-trash-o" aria-hidden="true"></i>
-              </button>
+                <button type="button" title="eliminar tarea">
+                  <i class="fa fa-trash-o" aria-hidden="true"></i>
+                </button>
             </td>
           </tr>
         `;
@@ -48,23 +61,11 @@ export class Task extends Storage {
     this.tasks.forEach((task) => timers.push(new Timer(task)));
   }
 
-  createTimer(task){
+  createTimer(task) {
     this.tasks.push(new Timer(task));
   }
 
-  deleteTimer(id) {
-    for (const [index, timer] of timers.entries()) {
-        if (timer.task.id === id) {
-          timer.clear();
-          timers.splice(index, 1);
-          break;
-        } 
-    }
+  reActiveTimer() {
+    timers.forEach((timer) => timer.init());
   }
-
-  reActiveTimer(){
-      timers.forEach(timer => timer.init());
-  }
-
-
 }

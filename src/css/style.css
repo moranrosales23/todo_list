@@ -1,78 +1,31 @@
-@import url('https://fonts.googleapis.com/css2?family=MuseoModerno:wght@500&display=swap');
-
-*{
-    box-sizing: border-box;
-}
-input:invalid{
-    border: 2px solid darkred;
-}
-body{
-    background: url(../img/fondo.jpg) no-repeat fixed center;
-    background-size: cover;
-    font-family: 'MuseoModerno', cursive;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-.table{
-    border-collapse: collapse;
-    width: 66%;
-    color: white;
+@import url("https://fonts.googleapis.com/css2?family=MuseoModerno:wght@500&display=swap");
+@import "./table.css";
+@import "./form.css";
+* {
+  box-sizing: border-box;
 }
 
-
-.table > tbody tr{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin-top: 15px;
-    padding: 15px;
-    border-radius: 5px;
-}
-.table > tbody tr:hover{
-    transform: scale(1.1);
+body {
+  background: url("../img/fondo.jpg") no-repeat fixed center;
+  background-size: cover;
+  font-family: "MuseoModerno", cursive;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-
-.table tr td:first-child{
-    width: 86%;
-    padding-right: 15px;
+@media screen and (max-width:850px){
+  .formulario{
+    width: 98%;
+  }
+  #form_todo {
+    padding: 30px 20px;
+  }
+  .inputs {
+    padding-right: 20px;
+  }
+  .table{
+    width: 90%;
+  }
 }
-
-.table tr td:last-child{
-    width: 14%;
-}
-
-.table > tbody td{
-    text-align: center;
-}
-
-.table td button i{
-    pointer-events: none;
-    padding: 5px;
-}
-
-.table tr td button{
-    border-radius: 60px;
-    background-color: darkred;
-    border: none;
-    color: white;
-    cursor: pointer;
-}
-
-.task_description{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.time_remaining{
-    display: flex;
-}
-
-.time_remaining > span{
-    margin-left: 15px;
-    text-align: center;
-}
-
