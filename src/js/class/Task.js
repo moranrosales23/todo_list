@@ -4,42 +4,42 @@ import { Timer } from "./Timer.js";
 const timers = [];
 
 export class Task extends Storage {
-  add(task) {
-    this.save = [...this.tasks, task];
-    this.addRowTable(this.template(task));
-    this.createTimer(task);
-  }
-
-  delete(id) {
-    this.save = this.tasks.filter((task) => task.id !== id);
-    this.deleteTimer(id);
-  }
-
-  deleteTimer(id) {
-    for (const [index, timer] of timers.entries()) {
-      if (timer.task.id === id) {
-        timer.clear();
-        timers.splice(index, 1);
-        break;
-      }
+    add(task) {
+        this.save = [...this.tasks, task];
+        this.addRowTable(this.template(task));
+        this.createTimer(task);
     }
-  }
 
-  addRowTable(template, table = document.querySelector("table.table > tbody")) {
-    table.innerHTML += template;
-  }
+    delete(id) {
+        this.deleteTimer(id);
+        this.save = this.tasks.filter((task) => task.id !== id);
+    }
 
-  listTasks() {
-    document.querySelector("table.table > tbody").innerHTML = "";
-    const html = this.tasks.reduce(
-      (prev, task) => prev + this.template(task),
-      ""
-    );
-    this.addRowTable(html);
-  }
+    deleteTimer(id) {
+        for (const [index, timer] of timers.entries()) {
+            if (timer.task.id === id) {
+                timer.clear();
+                timers.splice(index, 1);
+                break;
+            }
+        }
+    }
 
-  template(task) {
-    return `
+    addRowTable(template, table = document.querySelector("table.table > tbody")) {
+        table.innerHTML += template;
+    }
+
+    listTasks() {
+        document.querySelector("table.table > tbody").innerHTML = "";
+        const html = this.tasks.reduce(
+            (prev, task) => prev + this.template(task),
+            ""
+        );
+        this.addRowTable(html);
+    }
+
+    template(task) {
+        return `
           <tr style="background-color: ${task.color};" >
             <td class="task_description">
                 <div class="task_description__text">
@@ -55,17 +55,17 @@ export class Task extends Storage {
             </td>
           </tr>
         `;
-  }
+    }
 
-  createAllTimer() {
-    this.tasks.forEach((task) => timers.push(new Timer(task)));
-  }
+    createAllTimer() {
+        this.tasks.forEach((task) => timers.push(new Timer(task)));
+    }
 
-  createTimer(task) {
-    this.tasks.push(new Timer(task));
-  }
+    createTimer(task) {
+        this.tasks.push(new Timer(task));
+    }
 
-  reActiveTimer() {
-    timers.forEach((timer) => timer.init());
-  }
+    reActiveTimer() {
+        timers.forEach((timer) => timer.init());
+    }
 }
