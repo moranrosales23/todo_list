@@ -1,5 +1,10 @@
 import { Task } from "./class/Task.js";
 
+import '../css/normalize.css';
+import '../css/style.css';
+
+import '../img/reloj1.png';
+
 const TASK = new Task();
 
 document.addEventListener("DOMContentLoaded", init);
