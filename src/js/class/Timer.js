@@ -32,7 +32,6 @@ export class Timer {
             time_remaining = 0;
             this.clear();
         }
-        console.log(`task: ${this.task.description}`);
         const element = document.querySelector(`#time${this.task.id}`);
         if (element === null) {
             this.clear();
